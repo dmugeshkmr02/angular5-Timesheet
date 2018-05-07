@@ -1,0 +1,32 @@
+.logo                                           {width:120px;}
+.left_side 										{height:100vh;background: #1a3972;padding:1em 1em;}
+.left_side h1							        {color:#fff;}
+
+.mat-icon                                       {vertical-align: middle;}
+.mat-line                                       {color:#fff;}
+.flex_auto                                      {flex: 1 1 auto;}
+
+.profile                                        {width:35px;height:35px;border-radius:50%; box-shadow:0px 2px 2px rgba(0,0,0,0.33); overflow:hidden;}
+.profile img                                    {width:100%;border-radius:50%;}
+.logout_btn                                     {border-collapse:collapse;border:0px; background:none; cursor:pointer;color:#212529;}
+.timeh1                                         {font-size: 0.8em;line-height: 2.5em; }
+.timeh1 h1                                      {padding: 0.3em 1.5em !important; }
+.timeh1 .time                                   {color:#2b9b1f;font-size: 1.6em !important;}
+.timeh1 .hrs                                    {color:#5e5e5e;font-size:0.8em !important; display:inline;}
+
+.mat-chip                                       {min-width:150px;color:#43903b; background-color:#e9f1ff; padding:2px 10px 2px 2px !important;}
+.add_task                                       {background-color:#43903b;color:#fff;}
+.bday_icon                                      {margin-top:-10px;}
+.b_name                                         {color:#212121;}
+.b_name strong                                  {color:#2b9b1f;}
+.arrow_btn                                      {min-width:0px !important; }
+
+.right-sidenav                                  {width:35%; max-width:500px; overflow-y:hidden;}
+.right-sidenav .mat-card                        {border:0px; box-shadow:none !important;}
+  
+.tasks_card                                     {background-color:#f6f7fd;box-shadow:0px 1px 2px rgba(0,0,0,0.33) !important; -webkit-box-shadow:0px 1px 2px rgba(0,0,0,0.33) !important; color:#021a62;padding:15px 24px;}
+.tasks_card .mat-card-title                     {font-size:1em;color:#1c3171;}
+.tasks_card .mat-card-subtitle .mat-icon        {vertical-align:top;}
+.tasks_card h2                                  {font-size:1.2em;color:#2b9b1f;}
+.mat-card-header .mat-button                    {min-width:auto;color:#c3cae2;}
+.mat-card-header .mat-button:hover              {color:#14296c;}

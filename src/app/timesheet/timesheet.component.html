@@ -1,0 +1,234 @@
+
+<mat-drawer-container>
+  <!--row-->
+  <div class="row no-gutters" [@animateArea]="">
+    <div class="left_side col-md-3 col-sm-3 col-lg-2">
+        <img src="assets/img/logo.png" class="logo mt-2 ml-4">
+        <mat-nav-list class="menuNav mt-4">
+          <mat-list-item *ngFor="let menu of menuNav">
+              <a matLine routerLinkActive="active" routerLink="/{{menu.link}}">
+                <mat-icon mat-list-icon>{{menu.icon}}</mat-icon> {{menu.name}}
+              </a>
+          </mat-list-item>
+        </mat-nav-list>
+    </div>
+    <div class="col-md-9 col-sm-9 col-lg-10">
+        <div class="row">
+          <div class="col-md-12 ">
+            <div class="row">
+              <mat-toolbar-row>
+                <mat-toolbar>
+                  <!--<span>
+                    <mat-icon mat-button (click)="sidenav.open()" >menu</mat-icon>
+                  </span>-->
+                  <span class="flex_auto">
+                    <h1>Hi, {{loginUsername}}</h1>
+                  </span>
+                  <button class="profile" mat-icon-button [matMenuTriggerFor]="menu">
+                    <img src="assets/img/profile/Mugesh.jpg">
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item routerLink="/login">
+                      <mat-icon> build </mat-icon>
+                      <span> Profile </span>
+                    </button>
+                    <button mat-menu-item routerLink="/login">
+                      <mat-icon>exit_to_app</mat-icon>
+                      <span> Change Password </span>
+                    </button>
+                  </mat-menu>
+                  <button class="ml-4 logout_btn" routerLink="/login">
+                    <mat-icon>power_settings_new</mat-icon>
+                  </button>
+                </mat-toolbar>
+              </mat-toolbar-row>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card rounded-0">
+              <div class="card-body pb-0" >
+                <div class="d-flex justify-content-between justify-content-md-center justify-content-sm-center">
+                  <div class="p-2">
+                    <mat-form-field>
+                      <input matInput [matDatepicker]="picker" placeholder="Choose a date" [formControl]="date">
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker> <!--touchUi="true" -->
+                    </mat-form-field>
+                  </div>
+                  <div class="mr-auto">
+                    <div class="timeh1">
+                      <div class="row">
+                          <h1>
+                            Today,<br/> 
+                            <span class="time">09:00 </span><span class="hrs">hrs</span>
+                          </h1>
+                          <h1>
+                            Total,<br/> 
+                            <span class="time">48:00 </span><span class="hrs">hrs</span>
+                          </h1>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mr-2">
+                    <div class="row">
+                      <span class="bday_icon mr-4"><img  src="assets/img/bday_icon.png" /></span>
+                      <mat-chip-list>
+                        <mat-chip class="mt-2">
+                          <span class="profile mr-2"><img  src="assets/img/profile/Mugesh.jpg" ></span> <span class="b_name">Mugesh <strong>Oct 5</strong></span>
+                        </mat-chip>
+                        <mat-chip class="mt-2">
+                          <span class="profile mr-2"><img  src="assets/img/profile/Mugesh.jpg" ></span> <span class="b_name">Vinoth <strong>Oct 15</strong></span>
+                        </mat-chip>
+                        <mat-chip class="mt-2">
+                            <span class="profile mr-2"><img  src="assets/img/profile/Mugesh.jpg" ></span> <span class="b_name">Silambarasan <strong>Nov 4</strong></span>
+                          </mat-chip>
+                      </mat-chip-list>
+                      <span class="ml-2 p-2">
+                        <button mat-raised-button class="arrow_btn pl-0 pr-0">
+                          <mat-icon>keyboard_arrow_left</mat-icon> 
+                        </button>
+                        <button mat-raised-button class="arrow_btn pl-0 pr-0">  
+                          <mat-icon>keyboard_arrow_right</mat-icon>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="ml-4 p-2">
+                    <button mat-raised-button class="add_task pl-2 pr-2" type="button" (click)="drawer.toggle()" >
+                      <mat-icon>add_box</mat-icon>
+                      <span> Add Task </span>
+                    </button>
+                  </div>
+                </div>
+                <!---->                            
+              </div>
+              <!--/card-block-->
+            </div>
+          </div>
+          <!--tasks_card-->
+          <div class="col-md-12 mt-4" >
+            <h1 class="row ml-4">No of Tasks : {{itemCount}}</h1>
+          </div>
+          <div class="col-md-12 mt-4" >
+            <div class="row ml-1">
+              <div class="col-sm-6 col-md-4 col-lg-3 mb-2 d-flex align-items-stretch"  *ngFor="let goal of goals; let i = index"  >
+                <mat-card class="tasks_card">
+                    <mat-card-header class="d-flex align-items-start justify-content-between">
+                      <mat-card-title >{{ goal }}</mat-card-title>
+                      <mat-card-subtitle><h1><mat-icon>access_time</mat-icon> 03:00</h1></mat-card-subtitle>
+                      <button mat-button (click)="removeItem(i)" class="pt-0 pb-0 pl-0 pr-0">
+                        <mat-icon class="float-right">delete</mat-icon>
+                      </button>
+                    </mat-card-header>
+                    <mat-card-content>
+                      <h2>EMC SHARP</h2>
+                      <p class="mt-2">
+                        working on getting objects while scanning and listout in ui
+                      </p>
+                    </mat-card-content>
+                  </mat-card>
+              </div>
+                
+              <div class="col-sm-6 col-md-4 col-lg-3 mb-2 d-flex align-items-stretch">
+                <mat-card class="tasks_card">
+                  <mat-card-header class="d-flex align-items-start justify-content-between">
+                    <mat-card-title>Development</mat-card-title>
+                    <mat-card-subtitle><h1><mat-icon>access_time</mat-icon> 06:00</h1></mat-card-subtitle>
+                    <button mat-button class="pt-0 pb-0 pl-0 pr-0">
+                      <mat-icon class="float-right">delete</mat-icon>
+                    </button>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <h2>Perfixit</h2>
+                    <p class="mt-2">
+                      Report Page fixed issues, Working on to convert recorded script into jmx file with transaction control name on it.
+                    </p>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+              <div class="col-sm-6 col-md-4 col-lg-3 mb-2 d-flex align-items-stretch">
+                <mat-card class="tasks_card">
+                  <mat-card-header class="d-flex align-items-start justify-content-between">
+                    <mat-card-title>Test Automation</mat-card-title>
+                    <mat-card-subtitle><h1><mat-icon>access_time</mat-icon> 03:00</h1></mat-card-subtitle>
+                    <button mat-button class="pt-0 pb-0 pl-0 pr-0">
+                      <mat-icon class="float-right">delete</mat-icon>
+                    </button>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <h2>EMC SHARP</h2>
+                    <p class="mt-2">
+                      working on getting objects while scanning and listout in ui
+                    </p>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            </div>
+            
+            
+            
+          </div>
+          <!--/tasks_card-->
+        </div>
+        <!--/row-->
+    </div>
+  </div>
+  <!--/row-->
+  <mat-drawer #drawer class="right-sidenav" mode="over" position="end" opened="{{isOpen}}">
+    <mat-card>
+      <mat-card-content>
+        <h1>Add Task <span class="float-right">{{calcTime}}</span></h1>
+      </mat-card-content>
+      <mat-card-content class="mt-4 d-flex ">
+        <div class="row mt-2 flex_auto">
+          <div class="col-md-6 mt-2">
+            <h2>Start Time</h2>
+            <timepicker [(ngModel)]="startTime" [showMeridian]="isMeridian"></timepicker>
+          </div>
+          
+          <div class="col-md-6 mt-2">
+              <h2>End Time</h2>
+              <timepicker [(ngModel)]="endTime" [showMeridian]="isMeridian"></timepicker>
+            </div>
+        </div>
+      </mat-card-content>
+      <mat-card-content class="">
+        <mat-form-field class="w-100">
+          <mat-select placeholder="Activity Type" name="Activity" [(ngModel)]="selected_Activity">
+            <mat-option *ngFor="let activity of activities" [value]="activity.value">
+              {{ activity.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card-content>
+        <mat-card-content>
+        <mat-form-field class="w-100">
+          <mat-select matInput placeholder="Project | Activity" name="Project Activity" [(ngModel)]="selected_project_activities">
+            <mat-option *ngFor="let project_activity of project_activities" [value]="project_activity.value">
+              {{ project_activity.viewValue }}
+            </mat-option>
+          </mat-select>
+         
+        </mat-form-field>
+        
+      </mat-card-content>
+      <mat-card-content>
+        <mat-form-field class="w-100">
+          <textarea matInput [(ngModel)]="notes" #task maxlength="256" placeholder="Task" matTextareaAutosize matAutosizeMinRows="4"
+            matAutosizeMaxRows="6" ></textarea>
+          <mat-hint align="end">{{task.value.length}} / 256</mat-hint>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-content>
+        <div class="d-flex justify-content-center">
+          <button mat-raised-button (click)="addTask()" class="add_task pl-2 pr-2 mr-4 " type="submit">
+            Add
+          </button>
+          <button mat-raised-button (click)="clearTask()" class="pl-2 pr-2" type="submit">
+            Clear
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>  
+  </mat-drawer>
+</mat-drawer-container>
